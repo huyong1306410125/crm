@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+ <hibernate-mapping>
+ 	<class name="crm.huyong.entity.LinkMan" table="t_linkman">
+ 		<id name="lid" column="lid">
+ 			<generator class="uuid"></generator>
+ 		</id>
+ 		
+ 		<property name="lname" column="lname" />
+ 		<property name="lgender" column="lgender" />
+ 		<property name="lphone" column="lphone" />
+ 		<property name="laddress" column="laddress" />
+ 		
+		<many-to-one name="customer" class="crm.huyong.entity.Customer"  column="c_cid"></many-to-one>
+ 	</class>
+ </hibernate-mapping>

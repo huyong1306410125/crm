@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+   
+<hibernate-mapping>
+	<class name="crm.huyong.entity.Customer" table="t_customer">
+		<id name="cid" column="cid">
+			<generator class="uuid"></generator>
+		</id>
+		<property name="cname" column="cname" />
+		<property name="clevel" column="clevel" />
+		<property name="caddress" column="caddress" />
+		<property name="csource" column="csource" />
+		<property name="cphone" column="cphone" />
+		
+		<set name="linkMan" inverse="true" cascade="delete">
+			<key column="c_cid"></key>
+			<one-to-many class="crm.huyong.entity.LinkMan" />
+		</set>
+		
+		<set name="cVisit" inverse="true" cascade="delete">
+			<key column="c_cid"></key>
+			<one-to-many class="crm.huyong.entity.Visit" />
+		</set>
+	</class>
+</hibernate-mapping>

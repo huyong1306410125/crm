@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="userAction" namespace="/" extends="struts-default">
+		<action name="UserAction_*" class="userAction" method="{1}">
+			<result name="loginfalse">/login.jsp</result>
+			<result name="loginsuccesse">/index.htm</result>
+		</action>
+	</package>
+	
+	<package name="customerAction" namespace="/" extends="struts-default">
+		<action name="CustomerAction_*" class="customerAction" method="{1}">
+			<result name="success">/jsp/success.jsp</result>
+			<result name="customerList">/jsp/customer/list.jsp</result>
+			<result name="editCustomer">/jsp/customer/edit.jsp</result>
+			<result name="list" type="redirectAction">CustomerAction_findCustomerByPage?currentPage=1</result>
+			<result name="likeList">/jsp/customer/like.jsp </result>
+		</action>
+	</package>
+	
+	<package name="linkManAction" namespace="/" extends="struts-default" >
+		<action name="LinkManAction_*" class="linkManAction" method="{1}">
+			<result name="addLinkMan">/jsp/linkman/add.jsp</result>
+			<result name="linkManList">/jsp/linkman/list.jsp</result>
+			<result name="list" type="redirectAction">LinkManAction_findLinkManByPage?currentPage=1</result>
+			<result name="likeList">/jsp/linkman/like.jsp</result>
+			<result name="editLinkMan">/jsp/linkman/edit.jsp</result>
+		</action>
+	</package>
+	
+	<package name="visitAction" namespace="/" extends="struts-default">
+		<action name="VisitAction_*" class="visitAction" method="{1}">
+			<result name="toAddVisitPage">/jsp/visit/add.jsp</result>
+			<result name="visitList">/jsp/visit/list.jsp</result>
+			<result name="list" type="redirectAction">VisitAction_findVisitByPage?currentPage=1</result>
+			<result name="editVisit">/jsp/visit/edit.jsp</result>
+		</action>
+	</package>
+</struts>
